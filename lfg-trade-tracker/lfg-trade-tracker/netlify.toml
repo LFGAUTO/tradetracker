@@ -1,0 +1,19 @@
+# LFG Trade Tracker — Netlify build settings
+#
+# Netlify auto-detects Next.js and provisions its Next.js adapter, which turns
+# server components, server actions and route handlers into Netlify Functions,
+# and src/middleware.ts into a Netlify Edge Function. Nothing to install.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Deploy previews and branch builds get the same treatment as production.
+[context.deploy-preview]
+  command = "npm run build"
+
+[context.branch-deploy]
+  command = "npm run build"
